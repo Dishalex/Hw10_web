@@ -11,37 +11,39 @@
       crossorigin="anonymous"
     />
     {% load static %}
-  
-    <link rel="stylesheet" href="{% static 'quotes/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'quotes/style.css' %}" />
 
     <title>Homework - copy "Quotes to scrape"</title>
-  
-    </head>
+  </head>
   <body>
-
     <div class="container">
-        <div class="row header-box pt-3 mb-3">
-            <div class="col-md-8">
-                <h1>
-                    <a href="/" style="text-decoration: none">Quotes to Scrape</a>
-                </h1>
-            </div>
-            <div class="col-md-4">
-                <p>
-                
-                    <a href="/logout" class="btn btn-primary">SignUp</a>
-                    <a href="/logout" class="btn btn-primary">Login</a>
-                    <a href="/logout" class="btn btn-primary">Logout</a>
-                </p>
-            </div>
+      <div class="row header-box pt-3 mb-3">
+        <div class="col-md-8">
+          <h1>
+            <a href="/" style="text-decoration: none">Quotes to Scrape</a>
+          </h1>
         </div>
-    
+        <div class="col-md-4">
+          
+          {% if user.is_authenticated %}
+          
+          <a href="{% url 'users:logout' %}" class="btn btn-primary">Logout</a>
+          <a href="{% url 'quotes:add_author' %}" class="btn btn-primary">Add author</a>
+          <a href="{% url 'quotes:add_quote' %}" class="btn btn-primary">Add quote</a>
 
-        {% block content %} {% endblock%}
+          {% else %}
+          
+          <a href="{% url 'users:login' %}" class="btn btn-primary">Login</a>
+          <a href="{% url 'users:signup' %}" class="btn btn-primary">SignUp</a>
+          
+          {% endif %}
 
+        </div>
+      </div>
+
+      {% block content %} {% endblock%}
+      
     </div>
-
   </body>
 </html>
-
-

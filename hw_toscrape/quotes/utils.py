@@ -9,6 +9,7 @@ uri = f'mongodb+srv://{mongo_user}:{mongodb_pass}@{domain}/{db_name}?retryWrites
 
 # Create a new client and connect to the server
 
+
 def get_mongodb():
     client = MongoClient(uri)
     db = client.Hw10_django

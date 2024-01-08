@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-
+import os
+api_key = os.environ.get('API_KEY')
 
 mongo_user='dishalex'
 mongodb_pass='JiAQGB42M7iwRE2J'

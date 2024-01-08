@@ -28,6 +28,9 @@
         <div class="grid">
             <button class="btn btn-primary" type="submit">Submit</button>
             <button class="btn btn-secondary" type="reset" class="secondary">Reset</button>
+            <div class="small text-center">
+                <a href="{% url 'users:password_reset' %}" class="text-center"><i>Forgot Password?</i></a>
+            </div>
         </div>
     </div>
 </form>
